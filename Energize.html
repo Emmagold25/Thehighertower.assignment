@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energize</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 50px;
+        }
+@media screen and (min-width: 600px) and (max-width: 1440px) {
+  /* Styles for laptops */
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Futura', 'Avenir', Georgia, 'Times New Roman', Times, serif;
+background-color: white;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+            color: #000;
+        }
+        h2 {text-align: center;
+    margin-left: 100px;
+color: white;
+font-size:25px;
+margin-top: 30px;}
+h3 {text-align: left;
+    margin-left: 100px;
+color: white;
+font-size:25px;
+margin-top: 40px;}
+
+        nav {
+            margin-left: 50%;
+            padding: 10px;
+            width:40%;
+            position:absolute;
+            top: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            flex: 1;
+            justify-content:space-evenly;
+            margin: 0;
+            padding: 0;
+            
+        }
+        p {color: black;}
+ul:hover{color: blue;}   
+ul:visited{color: red;}   
+ul{color: #000;}   
+
+        nav a {
+            text-decoration: none;
+            
+        }
+
+        .full_image_landscape {
+            height:auto;
+            width: 100%;
+            margin-top:0%;
+            margin-bottom: 30px;
+        }
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight:600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Margin-right on the first button */
+button:first-of-type {
+    margin-right: 5px; /* Adjust this value as needed */
+}
+       
+        .cards{max-width: 1000px;
+    display: grid;
+   margin: auto;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+.card1{box-sizing: border-box;
+background-color: white;
+text-align: left;
+border-radius: 10px;}
+.card2{box-sizing: border-box;
+background-color: white;
+text-align: left;
+border-radius: 10px;}
+.card3{box-sizing: border-box;
+background-color: white;
+text-align: left;
+border-radius: 10px;}
+.card1__content{color: #000;
+padding: 10px;}
+.card2__content{color: #000;
+padding: 10px;}
+.card3__content{color: #000;
+padding: 10px;}
+.hero-content{height:fit-content;
+background-color: white;
+margin-left: 60px;
+margin-right: 40px;
+margin-bottom: 30px;
+}
+.profile-card{color: black, 5, 5);
+font-size: 22px;
+font-weight: 600;}
+.profile-card i{transform: rotate(90deg);color: blue;}
+.hero-section{background-color: white;}
+.AboutUs{text-align: center;
+background-color: #000;}
+.AboutUs h2{padding-top: 35px;}
+.Blog{background-color: dimgray;
+height:fit-content;
+width: auto;
+padding-top: 25px;
+padding-bottom: 30px;}
+.full_image_portrait{
+height: 80% ;
+width: 60%;
+}
+.Pricing{background-color:white;
+    text-align: center;
+width: auto;
+padding-top: 20px;
+padding-bottom: 30px;
+align-items: center;
+align-content: center;
+
+}
+.card{height:95% ;
+        max-width: 55%;
+    display: grid;
+    
+   margin: auto;
+   margin-bottom: 40px;
+grid-template-columns: repeat(2, 1fr);
+gap: 40px;
+text-decoration: black;
+}
+.card4{box-sizing: border-box;
+background-color: darkgrey;
+text-align: center;
+border-radius: 10px;
+display: block;
+align-items: center;
+align-content: center;
+}
+.card5{box-sizing: border-box;
+background-color: black;
+border-radius: 10px;
+display: block;
+align-items: center;
+align-content: center;
+}
+.Nocredit{font-size: 12px;}
+.divider {
+            border: none; /* Remove default border */
+            border-top: 1px solid #dddddd; /* Light gray line */
+            margin-top: 0; /* Adjust margin if needed */
+            margin-bottom: 0; /* Adjust margin if needed */
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+.card4__content{color: lightgrey;
+text-align: center;
+align-content: center;
+}
+.card4__content h4{color: black;}
+.list{text-align: left;}
+.card5__content{color: white;
+text-align: center;
+align-content: center;
+text-decoration: none;}
+.card5__content ul {color: white;}
+.card5__content p {color: white;}
+.Faq{align-content: center;
+text-align: center;
+background-color:whitesmoke;
+height: fit-content;
+padding-left: 80px;
+}
+.faq hr{margin-left: 50px;
+margin-right: 60px;
+padding-right: 80px;}
+.Faq h4{color: #000;
+text-align: center;
+margin-left: 180px;font-size: large;
+}
+.Footer{text-align: left;
+margin-top: 25px;background-color: #000;
+}
+.Footer h1{color: #050606;
+text-shadow: -1px -1px 0 rgb(0, 195, 255);
+padding: 20px;
+height: 0.2px;
+}
+.Footer ul{color: white; height: fit-content;}
+.Footer h4{text-align: center; color: white;
+margin-bottom: 40px;
+padding-bottom: 20px;}
+
+.Footer i{transform: rotate(90deg);
+    color: blue;
+    text-shadow: none;width: 0.2px;height: 0.2px;
+}
+.faq h3{color: #000;
+text-align: center;}
+.faq-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.tab {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-question .icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+margin-right: 35%;
+text-align: center;
+}
+
+.faq-answer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.faq-item.open .faq-answer {
+  margin-top: 0.8rem;
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.faq-question h3{color: #000;}
+.tab.active{color:white;}
+.nav-links ul button:hover{color: blue;
+    cursor: pointer;
+}
+.footer--content{margin-left: 40px;
+padding-left: 30px;}
+    </style>
+</head>
+
+
+<body>
+<header class="hero-section">
+    <div class="hero-content">
+        <div class="profile-card"><b><i class="fa-solid fa-dumbbell"></i>EnerGiZe</b></div>
+        <nav>
+        <ul class="nav-links">
+            <ul>Home</ul>
+            <ul>About Us</ul>
+            <ul>Blog</ul>
+            <ul><button><b></b><i class="fa-solid fa-user"></i>Login</button></ul>
+
+        </ul>
+    </nav>
+   <h1>Transform Your Fitness <br> Journey. Start Today!</h1><p>
+    Trace workout, monitor progress, and achieve your goals with <br>
+    our all-in-one fitness app.
+   </p><br><br>
+   <button  style="background-color: blue; color: white;font-size: large; border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Get Started</button><button style="background-color:darkgrey; color:black;font-size: large; border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><i class="fa-solid fa-dumbbell"></i> Book a Demo</button><br>
+     <img src="hero-transparent-background.png" class="full_image_landscape">
+    </div>
+</header>
+   
+    <!-- About Me Section -->
+    <section class="AboutUs">
+        <h2>Discover How our app works and get fit in <br> no time</h2>
+        <img src="Screenshot video section.jpg" class="full_image_portrait">
+    <br><button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;">Get Started</button>
+            
+    </div>
+</section>
+
+    <!-- Blog section -->
+    <section class="Blog">
+        <h3>Hear from our satisfied users who <br> transformed their lives</h3>
+            <div class="cards">
+                <div class="card1">
+                    <div class="card1__content">
+                        <p>"I have lost 10 pounds in just a month!
+                            This app keeps me motivated and on track with my fitnest goals.
+                        </p><br><b>Alice Johnson</b><br>Health Coach
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card2__content">
+                        <p>"The workout plan are easy to follow, and the progress tracking feature
+                            is incedibly helpful. I feel stronger everyday"
+                        </p><br><b>Mark Thompson</b><br>Personal trainer
+                    </div>
+                </div>
+
+                <div class="card3">
+                    <div class="card3__content">
+                        <p>"This app has changed my fitness routine, i love the community support and challenges"
+                        </p><br><b>Sarah Parker</b><br>Fitness Ethusiast
+                    </div>
+                </div>
+            </div>
+
+    </section>
+<!-- Pricing Section -->
+    <section  class="Pricing">
+
+        <h1>Pricing</h1>
+
+        <p>Start with our Free plan and unlock premium as you grow.</p>
+<div class="card">
+    <div class="card4">
+        <div class="card4__content">
+            <h4>Basic</h4><p>
+                Ideal for beginners to track workouts and minor progress
+            </p><br>
+            <h4><b>Free</b>*No credit card needed</h4>
+            <hr class="divider">
+            <div class="list">
+            <ul>
+                <ul>Customizable Workout plan</ul>
+                <li>Track Daily Progress</li>
+                <li>Nutrition Tracker</li>
+                <li>Acess to community changes</li>
+            </ul></div>
+            <button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;
+    width: 60%;">Get Started</button>
+        </div>
+    </div>
+    <div class="card5">
+        <div class="card5__content">
+            <h4>Pro</h4><p>
+                Everything in the Basic plan plus advanced features for serious athlete.
+            </p><br>
+            <h4><b>$29</b>/month</h4>
+            <hr class="divider"><p>Unlock Premium Feature:</p>
+            <div class="list">
+            <ul>
+                <li>Personalised Coaching</li>
+                <li>Advanced Analytics</li>
+                <li>Offline Acees</li>
+                
+            </ul></div>
+            <button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;
+    width: 60%;">Get Started</button>
+        </div>
+    </div>
+</div>
+     <p>All prices are in USD and charged per month with applicable taxes added at checkout</p>
+<p></p>
+    </section>
+
+    <!-- Faq Section -->
+    <section class="Faq">
+        <h1>FrequentlyAsked Question</h1>
+            <div class="faq-tabs">
+      <button style="color: blue;" class="tab active">All</button>
+      <button class="tab">Getting Started</button>
+      <button class="tab">Pricing</button>
+    </div>
+    <div class="faq">
+      <div class="faq-item open">
+        <div class="faq-question">
+          <h3>How can the app help me achieve my fitness goals?</h3>
+          <span class="icon">−</span>
+        </div>
+        <div class="faq-answer">
+          <p>The app provides tailored workout plans, tracks your progress, and offers motivation to keep you on track.</p>
+        </div>
+      </div><hr class="divider">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Can I customize my workout plans?</h3>
+          <span class="icon">+</span>
+        </div><hr class="divider">
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Is there a free trial available?</h3>
+          <span class="icon">+</span>
+        </div><hr class ="divider">
+      </div>
+    </div>
+        </section>
+         <!-- Footer section-->
+           <section class="Footer">
+            <div class="footer--content">
+        <h1><i class="fa-solid fa-dumbbell"></i>EnerGiZe</h1> <p></p><ul>Privacy Policy</ul>
+            <ul>Terms of Service</ul><ul>Contact Us</ul>
+     <h4>© 2024 Fitness App by Emmanuel Nmaju. All rights reserved.</h4>
+        </div></section>
+
+</body>
+</html>

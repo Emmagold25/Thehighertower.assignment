@@ -1,426 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energize</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 50px;
-        }
-        body {
-            margin: 0px;
-            padding: 0px;
-            font-family: 'Futura', 'Avenir', Georgia, 'Times New Roman', Times, serif;
-background-color: white;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HighTowers | Travel & Tour</title>
+  <meta name="description" content="Explore the world with ease and excitement through our comprehensive travel platform. Your journey begins here." />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --bg-2: #0f1730;
+      --card: #121a33;
+      --muted: #9fb0d0;
+      --text: #e7eeff;
+      --brand: #5aa2ff; /* primary */
+      --brand-2: #7c5cff; /* accent */
+      --ring: rgba(90,162,255,.25);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:min(1100px, 92%); margin-inline:auto}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.6rem; padding:.85rem 1.2rem; border-radius:999px; font-weight:600; letter-spacing:.2px; border:1px solid transparent; cursor:pointer; transition:.25s ease;}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:white; box-shadow:0 10px 30px rgba(92,144,255,.35)}
+    .btn-primary:hover{filter:brightness(1.05); transform:translateY(-1px)}
+    .btn-ghost{background:transparent; border-color:blue; color:blue;transition: all 0.3s ease-in-out;
+    }
+    .btn-ghost:hover{background:#0f2052}
+    .btn-book:hover{color: white;}
+    .btn-book{outline: none;height: 40px; border-color: none;font-size: 20px;}
+    .tag{display:inline-block; font-size:.8rem; color:var(--muted); border:1px solid #2a3350; padding:.25rem .6rem; border-radius:999px}
+    .pill{display:inline-flex; align-items:center; gap:.5rem; font-size:.82rem; background:rgba(124,92,255,.12); color:#d7d5ff; border:1px solid rgba(124,92,255,.25); padding:.35rem .7rem; border-radius:999px}
 
-        h1 {
-            font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
-            color: #000;
-        }
-        h2 {text-align: center;
-    margin-left: 100px;
-color: white;
-font-size:25px;
-margin-top: 30px;}
-h3 {text-align: left;
-    margin-left: 100px;
-color: white;
-font-size:25px;
-margin-top: 40px;}
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(8px); background:rgb(237, 237, 236); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex; align-items:center; gap:1rem; padding:.8rem 0}
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:900; letter-spacing:.3px}
+    .brand .logo{width:36px; height:36px; display:grid; place-items:center; border-radius:10px; background:conic-gradient(from 120deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .spacer{flex:1}
+    .menu{color:blue; display:flex; gap:1.2rem; align-items:center;justify-content: center;}
+    .menu a{ font-weight:600; font-size:.95rem}
+    .menu a.active{color:blue}
+    .menu a:hover{font-size: 1.2rem;transition-duration:1s ;}
+    .mobile-toggle{display:none; background:transparent; border:none; color:var(--text)}
 
-        nav {
-            margin-left: 50%;
-            padding: 10px;
-            width:40%;
-            position:absolute;
-            top: 0;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            flex: 1;
-            justify-content:space-evenly;
-            margin: 0;
-            padding: 0;
-            
-        }
-        p {color: black;}
-ul:hover{color: blue;}   
-ul:visited{color: red;}   
-ul{color: #000;}   
-
-        nav a {
-            text-decoration: none;
-            
-        }
-
-        .full_image_landscape {
-            height:auto;
-            width: 100%;
-            margin-top:0%;
-            margin-bottom: 30px;
-        }
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight:600;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/* Margin-right on the first button */
-button:first-of-type {
-    margin-right: 5px; /* Adjust this value as needed */
-}
-       
-        .cards{max-width: 1000px;
-    display: grid;
-   margin: auto;
-grid-template-columns: repeat(3, 1fr);
-gap: 40px;
-}
-.card1{box-sizing: border-box;
-background-color: white;
-text-align: left;
-border-radius: 10px;}
-.card2{box-sizing: border-box;
-background-color: white;
-text-align: left;
-border-radius: 10px;}
-.card3{box-sizing: border-box;
-background-color: white;
-text-align: left;
-border-radius: 10px;}
-.card1__content{color: #000;
-padding: 10px;}
-.card2__content{color: #000;
-padding: 10px;}
-.card3__content{color: #000;
-padding: 10px;}
-.hero-content{height:fit-content;
-background-color: white;
-margin-left: 60px;
-margin-right: 40px;
-margin-bottom: 30px;
-}
-.profile-card{color: black, 5, 5);
-font-size: 22px;
-font-weight: 600;}
-.profile-card i{transform: rotate(90deg);color: blue;}
-.hero-section{background-color: white;}
-.AboutUs{text-align: center;
-background-color: #000;}
-.AboutUs h2{padding-top: 35px;}
-.Blog{background-color: dimgray;
-height:fit-content;
-width: auto;
-padding-top: 25px;
-padding-bottom: 30px;}
-.full_image_portrait{
-height: 80% ;
-width: 60%;
-}
-.nav-links{padding-top: 20px;
-margin-top: 20px;}
-.Pricing{background-color:white;
-    text-align: center;
-width: auto;
-padding-top: 20px;
-padding-bottom: 30px;
-align-items: center;
-align-content: center;
-
-}
-.card{height:95% ;
-        max-width: 55%;
-    display: grid;
-    
-   margin: auto;
-   margin-bottom: 40px;
-grid-template-columns: repeat(2, 1fr);
-gap: 40px;
-text-decoration: black;
-}
-.hero-section{padding-top: 20px;
-margin-top: 20px;}
-.card4{box-sizing: border-box;
-background-color: darkgrey;
-text-align: center;
-border-radius: 10px;
-display: block;
-align-items: center;
-align-content: center;
-}
-.card5{box-sizing: border-box;
-background-color: black;
-border-radius: 10px;
-display: block;
-align-items: center;
-align-content: center;
-}
-.Nocredit{font-size: 12px;}
-.divider {
-            border: none; /* Remove default border */
-            border-top: 1px solid #dddddd; /* Light gray line */
-            margin-top: 0; /* Adjust margin if needed */
-            margin-bottom: 0; /* Adjust margin if needed */
-            margin-left: 30px;
-            margin-right: 30px;
-        }
-.card4__content{color: lightgrey;
-text-align: center;
-align-content: center;
-}
-.card4__content h4{color: black;}
-.list{text-align: left;}
-.card5__content{color: white;
-text-align: center;
-align-content: center;
-text-decoration: none;}
-.card5__content ul {color: white;}
-.card5__content p {color: white;}
-.Faq{align-content: center;
-text-align: center;
-background-color:whitesmoke;
-height: fit-content;
-padding-left: 80px;
-}
-.faq hr{margin-left: 50px;
-margin-right: 60px;
-padding-right: 80px;}
-.Faq h4{color: #000;
-text-align: center;
-margin-left: 180px;font-size: large;
-}
-.Footer{text-align: left;
-margin-top: 25px;background-color: #000;
-}
-.Footer h1{color: #050606;
-text-shadow: -1px -1px 0 rgb(0, 195, 255);
-padding: 20px;
-height: 0.2px;
-}
-.Footer ul{color: white; height: fit-content;}
-.Footer h4{text-align: center; color: white;
-margin-bottom: 40px;
-padding-bottom: 20px;}
-
-.Footer i{transform: rotate(90deg);
-    color: blue;
-    text-shadow: none;width: 0.2px;height: 0.2px;
-}
-.faq h3{color: #000;
-text-align: center;}
-.faq-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-.tab {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  background-color: #e2e2e2;
-  color: #333;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.faq-question .icon {
-  font-size: 1.5rem;
-  font-weight: bold;
-margin-right: 35%;
-text-align: center;
-}
-
-.faq-answer {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  margin-left: 100px;
-  text-align: center;
-}
-
-.faq-item.open .faq-answer {
-  margin-top: 0.8rem;
-}
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.faq-question h3{color: #000;}
-.tab.active{color:white;}
-.nav-links ul button:hover{color: blue;
-    cursor: pointer;
-}
-.footer--content{margin-left: 40px;
-padding-left: 30px;}
-    </style>
-</head>
-
-
-<body>
-<header class="hero-section">
-    <div class="hero-content">
-        <div class="profile-card"><b><i class="fa-solid fa-dumbbell"></i>EnerGiZe</b></div>
-        <nav>
-        <ul class="nav-links">
-            <ul>Home</ul>
-            <ul>About Us</ul>
-            <ul>Blog</ul>
-            <ul><button><b></b><i class="fa-solid fa-user"></i>Login</button></ul>
-
-        </ul>
-    </nav>
-   <h1>Transform Your Fitness <br> Journey. Start Today!</h1><p>
-    Trace workout, monitor progress, and achieve your goals with <br>
-    our all-in-one fitness app.
-   </p><br><br>
-   <button  style="background-color: blue; color: white;font-size: large; border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Get Started</button><button style="background-color:darkgrey; color:black;font-size: large; border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><i class="fa-solid fa-dumbbell"></i> Book a Demo</button><br>
-     <img src="hero-transparent-background.png" class="full_image_landscape">
-    </div>
-</header>
+    /* HERO */
+    .hero{position:relative; padding: clamp(3rem, 6vw, 5rem) 0 2rem;background-image:url(header-bg.jpg);
+    background-repeat: no-repeat; background-size: cover; background-position: 0.2px 10px;}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; align-items:center; gap:2rem}
+    .eyebrow{display:inline-flex; align-items:center; gap:.5rem; color:#d8e7ff; font-weight:700; letter-spacing:.02em}
+    .hero h1{color: black; font-size:clamp(2rem, 4.8vw, 3.4rem); margin:.6rem 0 1rem; line-height:1.15}
+    .hero-2{color:black ; font-size:50px;}
+    .hero-3{color: blue;f}
+    .hero p{color:#c8d6fb; font-size:1.05rem}
+    .hero-cta{margin-top:1.2rem; display:flex; gap:.8rem; flex-wrap:wrap}
+    .hero-visual{grid-column: 4/8;position: relative;isolation: isolate;height: 100%; position:relative;  overflow:hidden;}
+    .hero-visual img{ object-fit:cover;}
    
-    <!-- About Me Section -->
-    <section class="AboutUs">
-        <h2>Discover How our app works and get fit in <br> no time</h2>
-        <img src="Screenshot video section.jpg" class="full_image_portrait">
-    <br><button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;">Get Started</button>
-            
+    /* SECTION */
+    .section{padding: clamp(2.5rem, 6vw, 4rem) 0}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.2rem}
+    .section-head1{text-align: center; padding-left: 30%; display: flex; align-items: center;justify-content: space-between;gap: 1rem; margin-bottom: 1.2rem;}
+    .section-head h2{margin:0; font-size:clamp(1.5rem, 3.2vw, 2rem)}
+    .section-head p {padding-left: 0; margin:0; color:var(--muted)}
+
+    /* DESTINATIONS */
+    .grid{display:grid; gap:1rem}
+    .grid-3{grid-template-columns:repeat(3, minmax(0,1fr))}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .card .media{position:relative}
+    .card .media:hover{overflow: hidden;transition-property: all;transition-duration: 10s;transition-delay: 0s;transition-timing-function: ease-out;}
+    .card .media img{height:200px; width:100%; object-fit:cover}
+    .card .body{padding:1rem}
+    .rating{display:flex; align-items:center; gap:.4rem; color:#ffe08a; font-weight:700}
+    .rating svg{width:16px; height:16px; fill:currentColor}
+    .card h4{margin:.4rem 0;}
+    .muted{color:var(--muted)}
+
+    /* FEATURES */
+    .feature{position: relative;
+    isolation: isolate;
+    padding-top: 3rem;
+    overflow: hidden;}
+    .feature_bg{padding: 1.2rem;
+    background-color: var(--extra-light);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;}
+    .feature_bg span{display: inline-block;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);}
+    .feature_bg h4{font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);}
+    .feature:hover .feature_content {
+    top: 0;
+  }
+    .feature_content span {display: inline-block; margin-bottom: 1rem;padding: 7px 9px; font-size: 1rem;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 100%;
+  }
+  .feature_content h4 {margin-bottom: 1rem;font-size: 0.9rem;font-weight: 600;color: var(--white);
+  }
+  
+  .feature_content p {
+    color: var(--extra-light);
+    font-size: 9px;
+  }
+    .feature_content{position: absolute; top: 100%; left: 0; width: 100%; height: 100%; padding: 1.5rem;background-color: var(--primary-color);
+    border-top-right-radius: 1rem; border-top-left-radius: 1rem; transition: 0.3s;}
+    .grid-feature{margin-top: 2rem;display: grid;gap: 0 1rem;}
+    
+
+    /* SHOWCASE */
+    .showcase{position: relative; display:grid; grid-template-columns: .9fr 1.1fr; gap:1rem; align-items:center;}
+    .stats{display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem}
+    .stat{height: 150px; background:#f2f2f5; border:1px solid rgba(255,255,255,.06); border-radius:20px; padding:1rem; text-align:center}
+    .stat h3{font-weight: 500; color: blue; margin:.1rem 0; font-size:3.5rem}
+    .image img{height: 400px;}
+
+    /* DISCOVER */
+    .discover{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;justify-content: center;align-items: center;text-align: center;}
+    .discover .tile{outline: 1px solid; outline-color: #0b1326; ; padding:1rem; border:1px;transition: 0.5s;border-radius: 1rem;}
+    .discover .tile h4{margin:.6rem 0 .4rem}
+    .discover span{justify-content: center;align-items: center;text-align: center;}
+    .discover .tile:hover {box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);}
+    .discover .tile p{color: var(--muted);}
+
+
+
+    /* TESTIMONIALS */
+    .testimonials{ margin-top: 4rem; width: 100%;}
+    .tcard:hover{color: blue;}
+    .tcard p{color:var(--brand-2)}
+    .tcard{ padding: 1rem;  background-color: var(--white);  border-radius: calc(1rem - 5px); }    .tcard .person{display:flex; align-items:center; gap:.7rem}
+    .avatar{width:44px; height:44px; border-radius:999px; overflow:hidden; border:1px solid rgba(255,255,255,.12)}
+    .role{font-size:.85rem; color:var(--muted)}
+
+          .carousel { position: relative;  width: 80%;  margin: auto;
+  
+}
+.carousel-inner-active{padding: 5px; background-color: var(--extra-light); border-radius: 1rem; transition: 0.3s;}
+.carousel-inner-active:hover{background-color:var(--brand)}
+.carousel-inner-active:hover h4{color: white;}
+.carousel-inner-active:hover h5{color: green;}
+.carousel-item h5{  font-size: 1rem;  font-weight: 500;  color: white;  transition: 0.3s;}
+.carousel-inner {   min-width: 375px;}
+
+.carousel-item {padding: 1rem;  display: flex;  align-items: center;  gap: 1rem;}
+.carousel-item h4{font-size: 1.1rem;
+  font-weight: 600;
+  color:black;
+  transition: 0.3s;}
+.carousel-item img{max-width: 50px;  border-radius: 100%;}
+.person{margin-bottom: 1rem;color: var(--brand);}
+
+    /* FOOTER */
+    footer{background-color: rgb(179, 177, 170); border-top:1px solid rgba(255,255,255,.06); padding:2.2rem 0; background:linear-gradient(180deg, transparent, rgba(255,255,255,.02))}
+    .fgrid{display:grid; grid-template-columns:repeat(4, 1fr) ; gap:1rem}
+    .fgrid h5{margin:.4rem 0 .6rem}
+    .fgrid ul{list-style:none; padding:0; margin:0; display:grid; gap:.4rem}
+    .fgrid a{color:var(--muted)}
+    .fgrid a:hover{color:white}
+    .copyright{margin-top:1.4rem; color:var(--muted); font-size:.9rem}
+    .container-copyright{color: var(--muted); align-content: center;justify-content: center;align-self: center;text-align: center;}
+
+    /* BOOKING MODAL */
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(5,8,16,.6); backdrop-filter:blur(6px); z-index:50}
+    .modal.active{display:grid}
+    .dialog{width:min(560px, 92%); background:#0d1428; border:1px solid rgba(255,255,255,.08); border-radius:18px; box-shadow:var(--shadow)}
+    .dialog header{display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; border-bottom:1px solid rgba(255,255,255,.08)}
+    .dialog main{padding:1rem 1.2rem; display:grid; gap:.8rem}
+    .dialog footer{padding:1rem 1.2rem; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:flex-end; gap:.6rem}
+    .field{display:grid; gap:.35rem}
+    .field label{font-size:.9rem; color:var(--muted)}
+    .field input, .field select{background:#0b1326; border:1px solid #243053; color:var(--text); padding:.8rem .9rem; border-radius:10px; outline:2px solid transparent; outline-offset:0; transition:.2s}
+    .field input:focus, .field select:focus{outline:2px solid var(--ring)}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:.8rem}
+
+    /* UTIL */
+    .center{display:grid; place-items:center}
+    .hide{display:none !important}
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr;}
+      .showcase{grid-template-columns:1fr}
+      .discover{grid-template-columns:1fr 1fr}
+      .testimonials{grid-template-columns:1fr 1fr}
+      .fgrid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 720px){
+      .grid-3{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .discover{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .menu{display:none}
+      .mobile-toggle{display:inline-flex}
+      .nav.open .menu{position:absolute; inset:auto 1rem auto auto; top:60px; display:grid; background:#0c142b; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:.6rem; gap:.2rem}
+      .nav.open .menu a{padding:.6rem .8rem; border-radius:8px}
+      .nav.open .menu a:hover{background:#121a33}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">HighTowers</a>
+      <div class="spacer"></div>
+      <div class="menu" id="mainMenu" role="menubar">
+        <a href="#home" class="active" role="menuitem">HOME</a>
+        <a href="#about" role="menuitem">ABOUT</a>
+        <a href="#tour" role="menuitem">TOUR</a>
+        <a href="#package" role="menuitem">PACKAGE</a>
+        <a href="#contact" role="menuitem">CONTACT</a>
+      </div>
+       <div class="spacer"></div>
+       <button class="btn btn-ghost">BOOK TRIP</button></div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container" id="home">
+    <div class="hero-grid">
+      <div>
+        <p> <span style="font-size: large;font-weight: 600;color: black;">Elevate your Travel Journey</span></p>
+        <h1>Experience The Magic Of <span class="hero-2">Flight </span> <span class="hero-3">!</span></h1>
+        
+        <div class="hero-cta">
+          <button class="btn btn-primary">Book A Trip Now</button>
+          <a href="#"><span  class="eyebrow pill">   
+          <svg  width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 12s4-8 9-8 9 8 9 8-4 8-9 8-9-8-9-8Zm9 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+        </span></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img alt="header" src="header.png" />
+      
+      </div>
     </div>
-</section>
+  </header>
 
-    <!-- Blog section -->
-    <section class="Blog">
-        <h3>Hear from our satisfied users who <br> transformed their lives</h3>
-            <div class="cards">
-                <div class="card1">
-                    <div class="card1__content">
-                        <p>"I have lost 10 pounds in just a month!
-                            This app keeps me motivated and on track with my fitnest goals.
-                        </p><br><b>Alice Johnson</b><br>Health Coach
-                    </div>
-                </div>
-                <div class="card2">
-                    <div class="card2__content">
-                        <p>"The workout plan are easy to follow, and the progress tracking feature
-                            is incedibly helpful. I feel stronger everyday"
-                        </p><br><b>Mark Thompson</b><br>Personal trainer
-                    </div>
-                </div>
+  <!-- POPULAR DESTINATIONS -->
+  <section class="container" id="tour">
+    <div class="section-head1">
+      <div>
+        <h2>Popular Destination</h2>
+        <p>Discover the most loved destinations around the globe</p>
+      </div>
+      <a href="#package" class="btn btn-ghost">View Packages</a>
+    </div>
+    <div class="grid grid-3">
+      <!-- NYC -->
+      <div class="card">
+        <div class="media"><img src="destination-1.jpg" alt="New York City skyline" loading="lazy"></div>
+        <div class="body">
+          <span class="muted">Tradition and Futurism</span>
+          <h4>New York City, USA</h4>
+          <div class="rating" aria-label="rating 4.7 out of 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.3 5.9 21l1.7-7.3L2 8.9l7.5-.6L12 1l2.5 7.3 7.5.6-5.6 4.8L18.1 21z"/></svg>
+            4.7
+          </div>
+        </div>
+      </div>
+      <!-- PARIS -->
+      <div class="card">
+        <div class="media"><img src="destination-2.jpg" alt="Paris Eiffel Tower" loading="lazy"></div>
+        <div class="body">
+          <span class="muted">The City of Lights</span>
+          <h4>Paris, France</h4>
+          <div class="rating" aria-label="rating 4.5 out of 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.3 5.9 21l1.7-7.3L2 8.9l7.5-.6L12 1l2.5 7.3 7.5.6-5.6 4.8L18.1 21z"/></svg>
+            4.5
+          </div>
+        </div>
+      </div>
+      <!-- BALI -->
+      <div class="card">
+        <div class="media"><img src="destination-3.jpg" alt="Bali rice terraces" loading="lazy"></div>
+        <div class="body">
+          <span class="muted">Island of the Gods</span>
+          <h4>Bali, Indonesia</h4>
+          <div class="rating" aria-label="rating 4.8 out of 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.3 5.9 21l1.7-7.3L2 8.9l7.5-.6L12 1l2.5 7.3 7.5.6-5.6 4.8L18.1 21z"/></svg>
+            4.8
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                <div class="card3">
-                    <div class="card3__content">
-                        <p>"This app has changed my fitness routine, i love the community support and challenges"
-                        </p><br><b>Sarah Parker</b><br>Fitness Ethusiast
-                    </div>
-                </div>
+  <!-- FEATURES / ABOUT -->
+  <section class="container" id="about">
+    <div class="section-head2">
+      <h2 class="section-head2" style="margin-top: 4.5rem;">Journey To The Sky Made Simple!</h2>
+      <p class="section-head2-3">Effortless planning for your next adventure</p>
+    </div>
+    <div class="grid-features">
+      <div class="feature">
+        <div class="feature_bg">
+        <span><i class="ri-bookmark-3-line"></i></span>
+        <h4>Seamless Booking Process</h4>
+        <div class="feature_content">
+           <span><i class="ri-bookmark-3-line"></i></span>
+        <h4>Easy Reservations, One Click Away</h4>
+        <p>From flights and accommodations to activities and transfers, everything you need is at your fingertips.</p>
+      </div>
+        </div>
+      <div class="feature">
+        <div class="feature_bg">
+        <span><i class="ri-landscape-fill"></i></span>
+        <h4>Tailored Itineraries<div>
+        </div>
+        <div class="feature_content"></div>
+        <span><i class="ri-landscape-fill"></i></span>
+                <h4>Customized Plans Just for You</h4>
+                <p>
+                  Enjoy personalized travel plans designed to match your preferences
+                  and interests. Whether you seek adventure or cultural immersion,
+                  our tailored itineraries ensure your journey is uniquely yours.
+                </p>
+              </div>
             </div>
 
-    </section>
-<!-- Pricing Section -->
-    <section  class="Pricing">
+      <div class="feature">
+              <div class="features_bg">
+                <span><i class="ri-map-2-line"></i></span>
+                <h4>Expert Local Insights</h4>
+              </div>
+              <div class="features_content">
+                <span><i class="ri-map-2-line"></i></span>
+                <h4>Insider Tips and Recommendations</h4>
+                <p>
+                  We provide curated recommendations for dining, sightseeing, and
+                  hidden gems, so you can experience each destination like a local.
+                </p>
+              </div>
+            </div>
+          </div>
+  </section>
 
-        <h1>Pricing</h1>
-
-        <p>Start with our Free plan and unlock premium as you grow.</p>
-<div class="card">
-    <div class="card4">
-        <div class="card4__content">
-            <h4>Basic</h4><p>
-                Ideal for beginners to track workouts and minor progress
-            </p><br>
-            <h4><b>Free</b>*No credit card needed</h4>
-            <hr class="divider">
-            <div class="list">
-            <ul>
-                <ul>Customizable Workout plan</ul>
-                <li>Track Daily Progress</li>
-                <li>Nutrition Tracker</li>
-                <li>Acess to community changes</li>
-            </ul></div>
-            <button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;
-    width: 60%;">Get Started</button>
-        </div>
-    </div>
-    <div class="card5">
-        <div class="card5__content">
-            <h4>Pro</h4><p>
-                Everything in the Basic plan plus advanced features for serious athlete.
-            </p><br>
-            <h4><b>$29</b>/month</h4>
-            <hr class="divider"><p>Unlock Premium Feature:</p>
-            <div class="list">
-            <ul>
-                <li>Personalised Coaching</li>
-                <li>Advanced Analytics</li>
-                <li>Offline Acees</li>
-                
-            </ul></div>
-            <button style="background-color: blue; color: white;font-size: large; border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-bottom: 30px;
-    width: 60%;">Get Started</button>
-        </div>
-    </div>
-</div>
-     <p>All prices are in USD and charged per month with applicable taxes added at checkout</p>
-<p></p>
-    </section>
-
-    <!-- Faq Section -->
-    <section class="Faq">
-        <h1>FrequentlyAsked Question</h1>
-            <div class="faq-tabs">
-      <button style="color: blue;" class="tab active">All</button>
-      <button class="tab">Getting Started</button>
-      <button class="tab">Pricing</button>
-    </div>
-    <div class="faq">
-      <div class="faq-item open">
-        <div class="faq-question">
-          <h3>How can the app help me achieve my fitness goals?</h3>
-          <span class="icon">−</span>
-        </div>
-        <div class="faq-answer">
-          <p>The app provides tailored workout plans, tracks your progress, and offers motivation to keep you on track.</p>
-        </div>
-      </div><hr class="divider">
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Can I customize my workout plans?</h3>
-          <span class="icon">+</span>
-        </div><hr class="divider">
-        </div>
+  <!-- SHOWCASE / CTA -->
+  <section class="container" id="package">
+    <div class="showcase">
+      <div class="image">
+        <img src="showcase.jpg" alt="Traveler overlooking coastline from airplane" loading="lazy"/>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Is there a free trial available?</h3>
-          <span class="icon">+</span>
-        </div><hr class ="divider">
+      <div>
+        <h1>UNLEASH WANDERLUST WITH HIGHTOWERS</h1>
+        <h6 class="muted">Embark on a journey like no other with Skywings, where your travel dreams come to life. Our mission is to inspire and facilitate your adventures, whether you seek the vibrant energy of bustling cityscapes, the serene beauty of pristine beaches, or the captivating history of ancient landmarks. At Skywings, we provide expertly curated destinations and personalized itineraries, ensuring that every trip is tailored to your unique preferences. Discover hidden gems, immerse yourself in diverse cultures, and create unforgettable memories that will last a lifetime.
+<h6 class="muted">With Skywings as your ultimate travel companion, exploring the wonders of the world has never been easier. Our insider tips and local insights give you the tools to navigate new places with confidence and excitement. From the moment you start planning to the day you return home, we are dedicated to making your travel experience seamless and enriching.</h6></h6>
+        <div style="margin-top:1rem">
+        </div>
+      <button class="btn-book" style="width: 600px;outline: none;border-color: white; background-image: url(header-bg.jpg);">Book A Flight Now →</button>
       </div>
     </div>
-        </section>
-         <!-- Footer section-->
-           <section class="Footer">
-            <div class="footer--content">
-        <h1><i class="fa-solid fa-dumbbell"></i>EnerGiZe</h1> <p></p><ul>Privacy Policy</ul>
-            <ul>Terms of Service</ul><ul>Contact Us</ul>
-     <h4>© 2024 Fitness App by Emmanuel Nmaju. All rights reserved.</h4>
-        </div></section>
+     <div class="stats">
+          <div class="stat"><h3>10+</h3><div class="muted">Years Experience</div></div>
+          <div class="stat"><h3>12K</h3><div class="muted">Happy Clients</div></div>
+          <div class="stat"><h3>4.8</h3><div class="muted">Overall Ratings</div></div>
+        </div>
+  </section>
 
+  <!-- DISCOVER -->
+  <section class="container">
+    <div class="section-head3">
+      <h2>Discover The World From Above</h2>
+      <p>Experience breathtaking views and unique perspectives</p>
+    </div>
+    <div class="discover">
+      <div class="tile">
+        <span><i class="ri-camera-lens-line"></i></span><br>
+        <h4>Aerial Cityscapes</h4>
+        <p>Witness the architectural marvels and bustling streets from bird's-eye view, offering a unique perspective.</p>
+      </div>
+      <div class="tile">
+        <span><i class="ri-ship-line"></i></span><br>
+        <h4>Coastal Wonders</h4>
+        <p>Fly over pristine coastlines and turquoise waters, revealing hidden coves and vibrant coral reefs.</p>
+      </div>
+      <div class="tile">
+        <span><i class="ri-landscape-line"></i></span><br>
+        <h4>Historic Landmarks</h4>
+        <p>Observe the grandeur of ancient castles and other significant sites in a way that ground tours can't offer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="container" id="contact">
+    <div class="section-head4">
+      <h2>Loved By Over Thousand Travelers</h2>
+      <p>Real stories from our valued clients</p>
+    </div>
+    <div class="testimonials">
+      <div class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item-active">
+      <div class="tcard">
+        <div class="person">
+          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+        </div>
+        <p>
+                          Skywings has completely transformed my travel experience. From
+                          finding hidden gems in bustling cities to discovering serene
+                          retreats off the beaten path, every detail was thoughtfully
+                          arranged. I can't recommend Skywings enough for anyone looking
+                          to elevate their travel experience!
+                        </p>
+      </div>
+    </div>
+      <div class="carousel-item">
+     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="client" />
+      <div>
+<h4>John Adams</h4>
+                          <h5>Travel Blogger</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      <div class="carousel-inner">
+                    <div class="carousel-inner-active">
+                      <div class="tcard">
+                        <div class="person">
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                        </div>
+                        <p>
+                          My recent adventure with Skywings was nothing short of
+                          spectacular. The personalized itineraries and recommendations
+                          they provided led me to extraordinary locations that I would
+                          never have found on my own. I'm already planning my next
+                          adventure with them!
+                        </p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="c" alt="client" />
+                        <div>
+                          <h4>Emily Thompson</h4>
+                          <h5>Adventure Enthusiast</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-inner-active">
+                      <div class="tcard">
+                        <div class="person">
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                        </div>
+                        <p>
+                          Skywings offered a transformative experience for my research
+                          into historical landmarks. The unique aerial perspectives and
+                          provided a new level of appreciation and insight into the
+                          sites I studied. I highly recommend their services to fellow
+                          historians and cultural enthusiasts.
+                        </p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="images/client-3.jpg" alt="client" />
+                        <div>
+                          <h4>Sarah Lee</h4>
+                          <h5>Cultural Historian</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-inner-active">
+                      <div class="tcard">
+                        <div class="person">
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                          <span><i class="ri-star-fill"></i></span>
+                        </div>
+                        <p>
+                          Finding a balance between work and travel can be challenging,
+                          but Skywings made it effortless. Their efficient planning and
+                          excellent recommendations helped me maximize my downtime and
+                          enjoy every moment of my trip. I look forward to working with
+                          them again on future travels.
+                        </p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="images/client-4.jpg" alt="client" />
+                        <div>
+                          <h4>David Patel</h4>
+                          <h5>Business Executive</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container fgrid">
+      <div>
+        <div class="brand"><span>HighTowers</span></div>
+        <p class="muted" style="margin:.8rem 0 0">Explore the world with ease and excitement through our comprehensive travel platform. Your journey begins here.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tour">Flights</a></li>
+          <li><a href="#package">Hotels</a></li>
+          <li><a href="#package">Cruise</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact Us</h5>
+        <ul>
+          <li><a href="tel:+919876543210">+91 9876543210</a></li>
+          <li><a href="mailto:info@hightowers"> info@hightowers</a></li>
+          <li> Lagos, Nigeria </li>
+        </ul>
+      </div>
+      <div>
+        <h5>Subscribe</h5>
+        <form id="subscribeForm">
+          <div class="field">
+            <label for="subEmail" class="sr-only">Email</label>
+            <input id="subEmail" type="email" placeholder="Enter your Email" required>
+          </div>
+          <div style="margin-top:0%"><button style="margin-top: 5px; border-top: 25%; background-color: blue; color: white; border: 1px;width: 300px;font-size: larger;" class="btn-primary1" type="submit">Subscribe</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="container-copyright">Copyright © 2024 Emmanuel Nmaju. All rights reserved.</div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal" aria-hidden="true" role="dialog" aria-labelledby="bookingTitle">
+    <div class="dialog" role="document">
+      <header>
+        <h3 id="bookingTitle" style="margin:0">Book Your Trip</h3>
+        <button class="btn btn-ghost" id="closeBooking" aria-label="Close booking">Close</button>
+      </header>
+      <main>
+        <form id="bookingForm">
+          <div class="row">
+            <div class="field">
+              <label for="from">From</label>
+              <input id="from" name="from" placeholder="City / Airport" required>
+            </div>
+            <div class="field">
+              <label for="to">To</label>
+              <input id="to" name="to" placeholder="City / Airport" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="depart">Departure</label>
+              <input id="depart" name="depart" type="date" required>
+            </div>
+            <div class="field">
+              <label for="return">Return</label>
+              <input id="return" name="return" type="date">
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="class">Class</label>
+              <select id="class" name="class">
+                <option>Economy</option>
+                <option>Premium Economy</option>
+                <option>Business</option>
+                <option>First</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pax">Passengers</label>
+              <input id="pax" name="pax" type="number" min="1" value="1" required>
+            </div>
+          </div>
+        </form>
+      </main>
+      <footer>
+        <button class="btn btn-ghost" id="cancelBooking">Cancel</button>
+        <button class="btn btn-primary" id="submitBooking">Confirm Booking</button>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id)?.scrollIntoView({behavior:'smooth'}); }
+      })
+    });
+
+    // Mobile menu toggle
+    const nav = document.querySelector('.nav');
+    const toggle = document.getElementById('mobileToggle');
+    toggle?.addEventListener('click', ()=>{
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Active link on scroll
+    const links = Array.from(document.querySelectorAll('.menu a'));
+    const sections = links.map(l=> document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const activate = () => {
+      const y = window.scrollY + 120;
+      for(const [i,sec] of sections.entries()){
+        const top = sec.offsetTop, bottom = top + sec.offsetHeight;
+        const link = links[i];
+        if(y>=top && y<bottom){ link.classList.add('active'); }
+        else { link.classList.remove('active'); }
+      }
+    };
+    window.addEventListener('scroll', activate); activate();
+
+    // Booking modal logic
+    const modal = document.getElementById('bookingModal');
+    const openers = ['openBooking','openBooking2','openBooking3'].map(id=>document.getElementById(id)).filter(Boolean);
+    const openModal = ()=>{ modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); };
+    const closeModal = ()=>{ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); };
+    openers.forEach(btn=> btn.addEventListener('click', openModal));
+    document.getElementById('closeBooking')?.addEventListener('click', closeModal);
+    document.getElementById('cancelBooking')?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+    // Simple booking submit
+    document.getElementById('submitBooking')?.addEventListener('click', ()=>{
+      const form = document.getElementById('bookingForm');
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      const data = Object.fromEntries(new FormData(form).entries());
+      alert(`Booking requested!\nFrom: ${data.from}\nTo: ${data.to}\nDeparture: ${data.depart}\nReturn: ${data.return||'-'}\nClass: ${data.class}\nPassengers: ${data.pax}`);
+      closeModal();
+      form.reset();
+    });
+
+    // Subscribe form (demo only)
+    document.getElementById('subscribeForm')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('subEmail').value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        alert('Please enter a valid email');
+        return;
+      }
+      alert('Thanks for subscribing!');
+      e.target.reset();
+    });
+
+    // Intersection animations (subtle)
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.animate([
+            {opacity:0, transform:'translateY(12px)'},
+            {opacity:1, transform:'translateY(0)'}
+          ], {duration:500, easing:'ease-out'});
+          io.unobserve(entry.target);
+        }
+      })
+    }, {threshold:.12});
+    document.querySelectorAll('section .card, .feature, .tile, .tcard, .stat, .showcase .image, .hero-visual').forEach(el=> io.observe(el));
+
+  </script>
 </body>
 </html>
